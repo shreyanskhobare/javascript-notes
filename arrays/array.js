@@ -112,6 +112,13 @@ fruitsCopy = [...fruitsCopy2, berries]; // // ["apple","mango","orange",["strawb
 fruitsCopy = [fruitsCopy2, ...berries]; // [["apple","mango","orange"],"strawberry", "blackberry" ]
 
 console.log(fruitsCopy);
+/**
+ * In above example, if you replace square brackets [] with curly brackets {}, then rather than 
+ * appending, it will replace the objects in first with objects in second
+ */
+fruitsCopy = {...fruitsCopy2, ...berries}; // {} used here rather than []
+console.log(fruitsCopy); // ["strawberry", "blackberry","orange" ]
+
 
 /**  FLATTEN
  * This is again similar to ... (Spread operator)
