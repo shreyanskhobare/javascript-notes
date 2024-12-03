@@ -209,3 +209,65 @@ array.forEach(function (n) {        // Arrays have inbuild 'forEach' functions w
 
 // Above function can be replaced with-
 array.forEach(n => console.log(n));     // This will also print 2,3,4 on new lines
+
+
+
+/**
+ ******************************* IMMEDIATELY INVOKED FUNCTION EXPRESSIONS  (IIFE)
+ These are generally used in case you want to create a local variable which has the same name as a variable defined 
+ as global object in another .js file.
+
+ Example: if there is another .js file which has a 'const firstName' and if both .js files are imported in .html, 
+ then if you try to create 'const firstName' here, then code will give Exception!
+ To avoid such scenario's we use IIFE.
+
+ Syntax: 
+ 
+    (function () {
+        // Body
+    })();                               
+    
+There is () after the function block is complete. This is to call the function block immediately.
+
+ */
+
+// Example # 1:
+
+(function () {
+    
+    const firtName = 'Shrey';
+    console.log(firtName);
+
+    // You can also create / call another function inside IIFE
+    const internal = () => console.log('Hello ' + firtName);    // Hello Shrey
+    internal();
+
+})();                   // Remember that there has to be call to IIFE. So there is () at the end.
+
+
+// EXAMPLE # 2:  Function has parameter
+(function (name) {
+
+    console.log(name);      // Khob
+
+}) ('Khob');                // You pass the argument here
+
+
+// EXAMPLE # 3: You can also name the IIFE Function BUT YOU CANNOT CALL IT FROM OUTSIDE.
+// It should be called from Inside only making it re-cursible AND HENCE TO BE Avoided!
+(function recurse() {
+
+    // recurse();          // Can be called but should be avoided unless you have correct limit checks 
+                           // as it would become recursive and go in Infinite loop
+
+})();
+
+// recurse();          // WILL THROW AN EXCEPTION
+
+// EXAMPLE # 4: You can also define it using ARROW Function
+((parameter) => {           // No use of function keyword. Instead simple (() => {})();
+
+    console.log(`Input parameter: ${parameter}`);
+
+})('Hey Yo!');                   // Input passed here
+
