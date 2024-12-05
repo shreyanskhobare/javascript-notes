@@ -109,3 +109,24 @@ if (true) {
 }
 
 console.log(c);                 // 666 as it is a 'var' in code block and not function. So it is still in scope
+
+
+/**
+ * ************************* Shorthand IF condition
+ * AVOID IF POSSIBLE
+ */
+const num1 = 10;
+const num2 = 5;
+
+// General Syntax for if is:
+if (num1 > num2) {
+    console.log(num1);      // Line 1 logged
+    console.log(num2);      // Line 2 logged
+}
+
+// SHORT HAND IF is to get rid of {} brackets. For every new line use a comma (,)
+if (num1 > num2)
+    console.log(num1),      // Comma instead of ;
+    console.log(num2)       // This will also be printed.
+// But this cannot be used to define objects. So you cannot do: 'const something = x' over here
+    
