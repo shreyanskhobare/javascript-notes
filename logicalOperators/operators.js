@@ -185,3 +185,79 @@ num5 ??= 50;
 num6 ??= 50;
 console.log(`Using Logical operator ??= Consition- num5: ${num5} and num6: ${num6}`);
 // Using Logical operator ??= Consition- num5: 50 and num6: 0  --> Value of num5 is updated but value of num6 isn't.
+
+
+
+
+/** 
+ * ********************* TERNARY OPERATOR --  (CRITERIA) ? TRUE : FALSE
+ * Just like in java
+ */
+
+let age = 29;
+const canVote = age >=18 ? true : false;        // true -- Boolean value will be set
+const isEligible = age >=18 ? 'Yes' : 'No';        // Yes -- String value will be set
+
+console.log(`canVote: ${canVote} and isEligible: ${isEligible}`);  // canVote: true and isEligible: Yes
+
+
+/** ************ MULTISTATEMENT SCENARIO
+ * Use () bracket for multiple statements and each statement is separated by comma ,
+ */
+
+
+/**
+ * Generic implementation
+ * 
+ *      let message = '';
+        if (age >= 18) {                    // Code will go here
+            alert(`Yippie`);            
+            message = `You can vote!`;
+        } else {
+            alert(`Oh no!`);
+            message = `You cannot vote!`;
+        }
+*/
+
+let message = '';
+// You can use Ternary operator here by using () and each statement is separated by comma ,
+message = age >= 18 
+    ? (console.log('Yippie from ternary'), 'You can vote')       // Logged and value set
+    : (console.log('Oh No from ternary!'), 'You cannot vote');
+
+console.log(`Message: ${message} for age: ${age}`);     // Message: You can vote for age: 29
+
+// Checking the else condition.    
+age = 10;
+message = age >= 18 
+    ? (console.log('Yippie from ternary'), 'You can vote')       
+    : (console.log('Oh No from ternary!'), 'You cannot vote');  // Logged and value set
+
+console.log(`Message: ${message} for age: ${age}`);     // Message: You cannot vote for age: 10
+
+
+/** *************
+ * && Operator to replace logic if there is no else condition
+ * You cannot skip else condition i.e. using ':' in case of ternary as it will show error
+ * If there is no else condition required then you can just use && 
+ * 
+ * && will return FIRST FALSY OR THE LAST VALUE
+ */
+
+// Generic
+age = 20;
+if (age >= 18) {
+    console.log('You can vote - Generic');
+}
+
+// Using &&
+age >= 18 && console.log('You can vote - &&');          // Will be logged
+
+// Resetting age to lower value
+age = 10;
+if (age >= 18) {        // Won't go in
+    console.log('You can vote - Generic');
+}
+
+// Using &&
+age >= 18 && console.log('You can vote - &&');          // Won't be logged
