@@ -103,7 +103,7 @@ console.log(document.querySelector('input[type=text]'));
 console.log(document.querySelector('li:nth-child(2)').innerText);      // Orange Juice
 
 // We can again take this querySelector in an object and modify things
-const secondItem = document.querySelector('li:nth-child(2');            // Just took the object
+const secondItem = document.querySelector('li:nth-child(2)');            // Just took the object
 secondItem.innerText = 'Strawberry Juice';          // Changed from Orange Juice
 secondItem.style.color = 'brown';                   // Change can be observed on screen
 
@@ -116,6 +116,3 @@ console.log(list);          // Entire ul and it's underlying li will be printed
 // Using query selector on list (which is not a document)
 const firstItem = list.querySelector('li');         // Will fetch the first li from list
 firstItem.style.color='cyan';                       // Change can be observed on screen
-
-
-
