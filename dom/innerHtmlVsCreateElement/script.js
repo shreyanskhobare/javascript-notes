@@ -72,3 +72,45 @@ function createListIndividualElements(item) {
 
 // Calling above function
 createListIndividualElements('Chocolate');
+
+
+
+/** 
+ * ******************* Refactor to Multiple Functions for re-usability
+ * Basically splitting the createListIndividualElements() function into more functions 
+ * for making it more re-usable
+ */
+function createListReusableMethods(item) {
+
+    const listItem = document.createElement('li');
+    listItem.appendChild(document.createTextNode(item));        // Appending the new entry as a Text
+
+    const button = createButton('remove-item btn-link text-red');
+
+    // Adding the red 'x' icon to button by calling the createIcon() method here
+    button.appendChild(createIcon('fa-solid fa-xmark'));
+
+    listItem.appendChild(button);           // Adding button to object
+
+    document.querySelector('.items').appendChild(listItem);     // Adding item to actual list
+
+}
+
+function createButton (className) {
+
+    const button = document.createElement('button');
+    button.className = className;
+    return button;
+
+}
+
+function createIcon (className) {
+
+    const icon = document.createElement('i');
+    icon.className = className;
+    return icon;
+
+}
+
+// Call main newly created method
+createListReusableMethods('Broccoli');
